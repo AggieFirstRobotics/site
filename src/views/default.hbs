@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>{{page.title}}</title>
+		{{!-- <meta name="description" content="@TODO" />
+		<!-- @todo: replace with actual favicon (32x32 @ 72dpi) -->
+		<link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+		<!-- @todo: replace with actual touchicon (200x200 @ 72dpi) -->
+		<link rel="apple-touch-icon" href="/assets/img/touchicon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="red" />
+		<!-- @todo: update config in /assets/config/browserconfig.xml -->
+		<meta name="msapplication-config" content="/assets/config/browserconfig.xml" />
+		<!-- @todo: update with your domain -->
+		<link rel="canonical" href="http://localhost" />
+
+		<!-- Facebook OpenGraph metadata -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://localhost" />
+		<meta property="og:title" content="Content Title" />
+		<meta property="og:image" content="http://localhost/assets/img/small.png" />
+		<meta property="og:description" content="Description Here" />
+		<meta property="og:site_name" content="Site Name" />
+		<meta property="og:locale" content="en_US" />
+		<!-- Next tags are optional but recommended -->
+		<meta property="og:image:width" content="70" />
+		<meta property="og:image:height" content="70" />
+		<!-- Twitter metadata -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@site_account" />
+		<meta name="twitter:creator" content="@individual_account" />
+		<meta name="twitter:url" content="http://localhost" />
+		<meta name="twitter:title" content="Content Title" />
+		<meta name="twitter:description" content="Content description less than 200 characters" />
+		<meta name="twitter:image" content="http://localhost/assets/img/small.png" /> --}}
+
+		{{assets}}
+	</head>
+	<body class="page-{{page.slug}}">
+		<header class="site-header depth-3 depth-4-hover">
+			 <nav class="site-nav">
+				 <a id="sidebar-toggle">
+					 <div class="menu-icon">
+						 <span></span>
+						 <span></span>
+						 <span></span>
+						 <span></span>
+					 </div>
+				 </a>
+				<div class="logo">
+					<a href="{{url ''}}" title="Aggie FIRST Robotics Home Page">
+						<img src="{{url '/assets/img/logo.png'}}" alt="Aggie FIRST Robotics Logo" title="Aggie FIRST Robotics" />
+					</a>
+				</div>
+				<ul role="menubar" class="nav-links">
+					{{!-- <li role="none"><a role="menuitem" href="{{url '/about'}}">About</a></li> --}}
+					<li class="has-children" role="none"><a role="menuitem" {{!--href="{{url '/activities'}}"--}}>Activities</a><ul>
+						<li><a href="{{url '/activities/vex'}}">VEX U</a></li>
+						<li><a href="{{url '/activities/robots-done-quick'}}">Robots Done Quick</a></li>
+						<li><a href="{{url '/activities/mobile-machine-shop'}}">Mobile Machine Shop</a></li>
+					</ul></li>
+					<li role="none"><a role="menuitem" href="{{url '/member-resources'}}">Member Resources</a></li>
+					<li role="none"><a role="menuitem" href="{{url '/sponsors'}}">Sponsors</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			{{{body}}}
+			{{#unless page.noSponsors}}
+			{{#if @site.sponsors.length}}
+			{{!-- use the term supporters since sponsors triggers ad blockers! --}}
+			<section id="supporters" class="container">
+				<h1 class="center">We are proudly sponsored by</h1>
+				<div class="supporter-grid vertically-centered">
+					{{#each @site.sponsors as |sponsor|}}
+					<div class="supporter-single">
+						{{#if sponsor.link}}<a href="{{sponsor.link}}" target="_blank" rel="nofollow noreferrer">{{/if}}
+						<img class="supporter-logo" src="{{url sponsor.logo}}" alt="{{sponsor.name}}" />
+						{{#if sponsor.link}}</a>{{/if}}
+					</div>
+					{{/each}}
+				</div>
+			</section>
+			{{/if}}
+			{{/unless}}
+		</main>
+		<footer class="container">
+			<div class="copyright">&copy; 2018 <a href="{{url ''}}">Aggie FIRST Robotics</a></div>
+			<div>
+				<ul class="social">
+					<li>
+						<a href="{{@site.social.facebook}}" class="social-link" target="_blank" rel="noopener noreferrer">
+							<svg class="logo fb-logo" height="24px" width="24px" viewBox="0 0 58 58" fill="#FFF"><title>Facebook</title><path d="M53.85,0H3.15A3.15,3.15,0,0,0,0,3.15v50.7A3.15,3.15,0,0,0,3.15,57h27.3V35H23V26.33h7.41V20c0-7.37,4.49-11.38,11.06-11.38A62.15,62.15,0,0,1,48.15,9v7.69H43.61c-3.57,0-4.26,1.69-4.26,4.18v5.5H47.9L46.79,35H39.35V57h14.5A3.15,3.15,0,0,0,57,53.85V3.15A3.15,3.15,0,0,0,53.85,0Z" /></svg>
+						</a>
+					</li>
+					<li>
+						<a href="{{@site.social.youtube}}" class="social-link" target="_blank" rel="noopener noreferrer">
+							<svg viewBox="0 0 176 124" height="20px" class="logo yt-logo" fill="#FFF"><title>Youtube</title><path d="M180.32,53.36A22.12,22.12,0,0,0,164.76,37.7C151,34,96,34,96,34s-55,0-68.76,3.7A22.12,22.12,0,0,0,11.68,53.36C8,67.18,8,96,8,96s0,28.82,3.68,42.64A22.12,22.12,0,0,0,27.24,154.3C41,158,96,158,96,158s55,0,68.76-3.7a22.12,22.12,0,0,0,15.56-15.66C184,124.82,184,96,184,96S184,67.18,180.32,53.36ZM78,122.17V69.83L124,96Z" transform="translate(-8 -34)" /></svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+		<div id="menu-overlay"></div>
+		<style>body{color: #333; background: #F1F1F1}</style>
+	</body>
+</html>

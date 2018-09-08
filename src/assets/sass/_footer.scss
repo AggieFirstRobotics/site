@@ -1,0 +1,59 @@
+footer {
+	display: flex;
+	flex-direction: row;
+	@include centered;
+	justify-content: space-between;
+	background: $maroon;
+	color: $white;
+	padding: 15px 15% !important;
+
+	.copyright a {
+		text-decoration: none;
+		border-bottom: 1px solid $white;
+		padding-bottom: 3px;
+		color: $white;
+		transition: $fast-transition ease-in-out;
+		transition-property: color, border;
+
+		&:hover {
+			color: darken($white, 15%);
+			border-bottom: 1px solid darken($white, 15%);
+		}
+	}
+	.social {
+		display: inline-flex;
+		@include centered;
+		text-decoration: none;
+		list-style-type: none;
+		padding: 0;
+
+		.social-link {
+			height: 24px;
+			width: 24px;
+			margin: 8px;
+
+		}
+		.logo {
+			transition: fill $fast-transition ease-in-out;
+		}
+
+		.fb-logo:hover {
+			fill: $fb-blue;
+		}
+
+		.yt-logo:hover {
+			fill: $yt-red;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	footer {
+		flex-direction: column;
+		@include centered;
+
+		.copyright {
+			margin-bottom: 10px;
+		}
+	}
+}

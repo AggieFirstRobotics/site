@@ -1,0 +1,43 @@
+.post-container {
+	display: flex;
+	padding: 0 15px;
+
+	.post {
+		/*background-image: attr(data-background); We can't do this yet!*/
+		margin: 0 2em;
+		display: flex;
+		flex-direction: column;
+		/* Container-based alignment */
+		flex-basis: 0;
+		flex-grow: 1;
+		flex-shrink: 1;
+		text-decoration: none;
+
+		.post-title {
+			padding: 10px 0;
+			text-align: center;
+			color: black;
+			font-size: 1.5rem;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	.post-container {
+		@include container-mobile;
+		flex-direction: column;
+
+		.post {
+			flex: 1;
+			flex-basis: unset;
+			flex-grow: unset;
+			flex-shrink: unset;
+			margin: 15px 0;
+
+			&:nth-child(even) {
+				background: darken(white, 10%);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,50 @@
+/* Begin Colors */
+$highlight-background: #FBD404;
+$lightgrey: #E8E4DE;
+$maroon: #800000;
+$white: #F1F1F1;
+$fb-blue: #4267b2;
+$yt-red: #282828;
+/* End Colors */
+
+/* Begin screen sizes */
+$laptop: 1280px;
+$tablet: 768px;
+$mobile: 320px;
+/* End screen sizes */
+
+/* Begin Transitions*/
+$slow-transition: 0.45s;
+$medium-transition: 0.3s;
+$fast-transition: 0.15s;
+/* End Transitions*/
+
+/* Begin component-specific variables */
+
+/*	Begin Navigation */
+$nav-link-color: #333;
+$nav-link-active: $maroon;
+$nav-hover-color: $white;
+$nav-mobile-background: $white;
+$nav-full-height: 100px;
+$nav-height-step: 25px;
+
+
+// This mixin is serving as a variable
+
+@mixin nav-active-link() {
+	&:after {
+		content: '';
+		width: 100%;
+		border-bottom: 1px solid black;
+	}
+}
+/*	End Navigation */
+
+/* End component-specific variables */
+
+@mixin centered {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

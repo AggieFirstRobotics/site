@@ -1,0 +1,181 @@
+#sidebar-toggle {
+	display: none;
+}
+
+.menu-icon {
+	width: 42px;
+	height: 42px;
+
+	span {
+		position: absolute;
+		left: 0;
+		display: block;
+		width: 30px;
+		height: 4px;
+		margin-left: 6px;
+		background: black;
+		opacity: 1;
+		transition: all 0.3s ease-in-out;
+
+		&:nth-child(1) {
+			top: 6px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 18px;
+			transform: rotate(0deg);
+		}
+
+		&:nth-child(4) {
+			top: 30px;
+		}
+
+		.active &:nth-child(1),
+		.active &:nth-child(4) {
+			left: 50%;
+			width: 0;
+			opacity: 0;
+		}
+		.active &:nth-child(2) {
+			transform: rotate(45deg);
+		}
+		.active &:nth-child(3) {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.nav-links {transition: none; display: none;}
+	#sidebar-toggle {
+		display: inherit;
+		position: relative;
+		cursor: pointer;
+		background: none;
+	}
+
+	/* Menu overlay is an invisible layer right below the menu
+		which allows the end user to click anywhere to get the
+		menu to close */
+	#menu-overlay {
+		background-color: transparent;
+		visibility: hidden;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+
+		&.active {
+			visibility: visible;
+			z-index: 100;
+			background-color: rgba(25, 25, 25, 0.2);
+		}
+	}
+
+	body.menu-open {
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	.site-header {
+		z-index: 10001;
+
+		.logo {
+			margin: 0 auto;
+		}
+
+		.site-nav {
+			display: flex;
+			box-sizing: content-box;
+			margin: 0 20px;
+			align-items: center;
+			justify-content: center;
+			height: $nav-full-height - $nav-height-step;
+
+			.nav-links {
+				display: flex;
+				flex-direction: column;
+				visibility: hidden;
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: auto;
+				width: 300px;
+				transform: translateX(-300px);
+				margin-top: $nav-full-height - $nav-height-step;
+				border-top: 1px solid $nav-link-color;
+				background: $nav-mobile-background;
+				transition: all $slow-transition ease-in-out;
+				max-height: calc(100vh - 70px);
+				overflow-y: auto;
+
+				.menu-open & {
+					visibility: visible;
+					box-shadow: 10px 10px 21px 0 rgba(128,0,0,0.5);
+					transform: translateX(0);
+				}
+
+				.has-children {
+					height: auto;
+					border-bottom: none;
+
+					> a {
+						height: 55px;
+
+						&:after {
+							content: '';
+						}
+					}
+
+					ul {
+						visibility: visible;
+						opacity: 1;
+						height: auto;
+						width: auto;
+						position: initial;
+						left: initial;
+						margin: initial;
+						padding: 0;
+
+						a {
+							padding: 0;
+							padding-left: 4ch;
+						}
+					}
+				}
+			}
+
+			li {
+				height: 55px;
+				padding: 0;
+				border-bottom: 1px solid $nav-link-color;
+
+				a:focus,
+				a:hover {
+					outline: none;
+					color: $nav-link-active;
+				}
+			}
+
+			a {
+				padding-left: 2ch;
+				text-align: left;
+				&.active {
+					color: $nav-link-active;
+				}
+				span:after {
+					content: initial !important;
+				}
+			}
+		}
+	}
+
+	#hero {
+		height: calc(100vh - 75px);
+	}
+}

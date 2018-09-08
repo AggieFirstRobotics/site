@@ -1,0 +1,72 @@
+.site-header {
+	position: sticky;
+	background: inherit;
+	top: 0;
+}
+
+.site-nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 10%;
+	height: $nav-full-height;
+	transition: height $medium-transition ease,
+							margin $slow-transition ease;
+
+	.logo {
+		display: flex;
+		align-items: center;
+
+		img {
+			height: $nav-full-height - $nav-height-step;
+			transition: height $medium-transition ease;
+		}
+	}
+
+	.nav-links {
+		display: flex;
+		padding: 0;
+		margin: 0;
+		height: inherit;
+		list-style-type: none;
+
+		ul {
+			font-size: initial;
+			line-height: initial;
+		}
+	}
+
+	li {
+		height: inherit;
+
+		a {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			height: inherit;
+			padding: 0 30px;
+			text-decoration: none;
+			color: $nav-link-color;
+			transition: $slow-transition ease;
+			transition-property: background, color, padding;
+
+			&:focus,
+			&:hover {
+				background: rgba(0,0,0,0.1);
+				outline: none;
+			}
+
+			&.active {
+				@include nav-active-link();
+			}
+		}
+	}
+}
+
+header.scrolling .site-nav {
+	height: $nav-full-height - $nav-height-step;
+
+	.logo img {
+		height: $nav-full-height - 2 * $nav-height-step;
+	}
+}

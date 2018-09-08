@@ -1,0 +1,19 @@
+.supporter-grid {
+	display: flex;
+	flex-flow: row wrap;
+
+	.supporter-logo {
+		padding: 10px;
+		height: 150px;
+		transition: filter $fast-transition ease-in-out;
+
+		&:not(.color) {
+			filter: grayscale(100%);
+
+			&:hover {
+				filter: initial;
+			}
+		}
+
+	}
+}

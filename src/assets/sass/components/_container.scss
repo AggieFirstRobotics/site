@@ -1,0 +1,22 @@
+@mixin container {
+	padding: 25px 15%;
+}
+
+@mixin container-mobile {
+	padding: 25px 10%;
+}
+
+.container {
+	transition: padding $fast-transition ease-in-out;
+	@include container;
+
+	&.scroll {
+		overflow: scroll;
+	}
+}
+
+@media (max-width: 800px) {
+	.container {
+		@include container-mobile;
+	}
+}

@@ -1,0 +1,9 @@
+<ul class="officers">
+	{{#each @site.officers as |officer|}}
+	<li class="officer depth-1 depth-2-hover">
+		<img src="{{url (default officer.photo "/assets/img/no-photo.jpg")}}" alt="{{officer.name}}'s Photo" />
+		<p class="title">{{officer.name}}</p>
+		<p class="position">{{officer.position}}</p>
+	</li>
+	{{/each}}
+</ul>

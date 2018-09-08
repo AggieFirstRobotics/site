@@ -1,0 +1,57 @@
+.nav-links .has-children {
+	position: relative;
+	cursor: pointer;
+	padding: 0 10px;
+
+	& > a {
+		position: relative;
+		&:after {
+			position: absolute;
+			height: 0;
+			content: '›';
+			transform: rotate(90deg);
+			font-size: 25px;
+			right: -5px;
+			top: calc(50% + 0.1ch);
+			color: #8a8a8a;
+		}
+	}
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		flex-direction: column;
+		background: transparent;
+		padding: 0;
+		margin: 0;
+		transition: all $medium-transition ease;
+
+		li:nth-child(1) {
+			border-top: 1px solid $nav-link-color;
+		}
+
+		li {
+			background: $nav-mobile-background;
+			list-style-type: none;
+			border-bottom: 1px solid $nav-link-color;
+			width: 100%;
+			white-space: nowrap;
+
+		}
+
+		a {
+			padding: 30px 45px;
+			width: auto;
+		}
+	}
+
+	&:hover ul,
+	&:focus ul {
+		visibility: visible;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,19 @@
+.sidebar-outer {
+	display: flex;
+	flex-direction: row;
+
+	.sidebar {
+		padding-right: 10px;
+
+		.sidebar-items {
+			padding: 0;
+			line-height: 1.5em;
+			min-width: 10vw;
+			width: 100%;
+		}
+
+		li {
+			list-style-type: none;
+		}
+	}
+}

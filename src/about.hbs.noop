@@ -1,0 +1,23 @@
+---
+title: About Us
+---
+{{hero}}
+
+{{#container}}
+# History
+
+Aggie <abbr title="For Inspiration and Recognition of Science and Technology">FIRST</abbr> Robotics was founded in 2016. More history is needed
+
+# Mission
+
+Our goal as an organization is to help bridge the gap between late high school and early college for FIRST alumni.
+
+# Officers
+
+{{> officers}}
+
+# Constitution
+
+You can find the Aggie FIRST Robotics organization constitution [wherever it is](#/constitution)
+
+{{/container}}

@@ -1,0 +1,35 @@
+/*
+ * We need to add this special case since the current padding (10%) makes the
+ * menu too cramped.
+ */
+@media (min-width: $tablet) and (max-width: 1450px) {
+	.site-nav {
+		margin: 0 5%;
+
+
+		li a {
+			padding: 0 15px;
+		}
+
+		.nav-links .has-children {
+			& > a {
+				padding: 0 30px;
+
+				&:after {
+					right: -10px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 950px) {
+	.site-nav .logo img {
+		height: 50px;
+		padding: 0 10px;
+	}
+
+	.site-nav li a {
+		word-wrap: break-word;
+	}
+}
