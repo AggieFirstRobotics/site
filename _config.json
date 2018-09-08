@@ -1,0 +1,80 @@
+{
+	"name": "Aggie FIRST Robotics",
+	"url": "http://localhost:3000",
+	"plugins": [
+			"../plugins/minify-html",
+			"{cwd}/exstatic-plugins/container",
+			"{cwd}/exstatic-plugins/assets",
+			"{cwd}/exstatic-plugins/filter",
+			"{cwd}/exstatic-plugins/hero",
+			"{cwd}/exstatic-plugins/buildtime"
+	],
+	"social": {
+		"facebook": "https://www.facebook.com/aggieFIRSTrobotics/",
+		"youtube": "https://www.youtube.com/channel/UCLSG13Jo1L7_Z6mVhdxKgYA",
+		"slackJoin": "https://join.slack.com/t/aggiefirstrobotics/shared_invite/enQtMzkxMjY1MDQwNDAyLTQyNzk1NWU1ZGIxOGI0YzczYTI1ODY4OWI0YzUyZmFlOWRhMWM2MmYyNzBmNjg5MTkwN2JjMmYyYzYzOWJkZGM",
+		"slack": "https://aggiefirstrobotics.slack.com"
+	},
+	"officers": [{
+		"name": "Officer Name",
+		"photo": "/assets/img/tamu-sm.png",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}, {
+		"name": "Officer Name",
+		"photo": "/assets/img/no-photo.jpg",
+		"position": "Officer Position"
+	}],
+
+	"sponsors": [{
+		"name": "Texas A&M University",
+		"logo": "/assets/img/tamu-sm.png",
+		"link": "https://tamu.edu"
+	}, {
+		"name": "Dell",
+		"logo": "/assets/img/sponsor-dell.png",
+		"link": "https://dell.com",
+		"type": "platinum"
+	}, {
+		"name": "VEX",
+		"logo": "/assets/img/sponsor-vex.png",
+		"link": "https://vex.com",
+		"type": "platinum"
+	}, {
+		"name": "Saint Gobain",
+		"logo": "/assets/img/sponsor-saint-gobain.png",
+		"link": "https://www.saint-gobain-northamerica.com/",
+		"type": "silver"
+	}]
+}
