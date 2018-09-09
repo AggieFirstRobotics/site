@@ -24,3 +24,38 @@
 	background-position: initial;
 	}
 }
+
+.page-member-resources {
+	// @todo: update sizing for headings
+	section h2 {
+		text-align: left;
+		font-size: 2em;
+	}
+
+	img[src$="#sgimg"] {
+		max-width: 750px;
+		text-align: center;
+	}
+
+	button {
+		background: $secondary;
+		border: 1px solid transparent;
+		transition: all $medium-transition linear;
+
+		a {
+			display: block;
+			padding: 10px 15px;
+			color: $primary;
+			text-decoration: none;
+		}
+
+		&:hover {
+			background: $primary;
+			border: 1px solid $secondary;
+
+			a {
+				color: $secondary;
+			}
+		}
+	}
+}
