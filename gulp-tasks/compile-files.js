@@ -11,7 +11,7 @@ module.exports = cb => {
 	// CASE: Netlify production deployment (we set the variable there)
 	if (process.env.CONTEXT && process.env.CONTEXT === 'deploy-preview') {
 		opts.url = process.env.DEPLOY_PRIME_URL;
-	} if (process.env.NODE_ENV === 'production') {
+	} else if (process.env.NODE_ENV === 'production') {
 		opts.url = PRODUCTION_URL;
 	} else if (process.env.EXSTATIC_DEPLOY_URL) {
 		opts.url = process.env.EXSTATIC_DEPLOY_URL;
