@@ -58,4 +58,12 @@
 			}
 		}
 	}
+
+	.opp-wrapper > p {
+		display: flex;
+		align-items: center;
+		img {
+			padding-right: 25px;
+		}
+	}
 }
