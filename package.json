@@ -1,4 +1,12 @@
 {
+  "name": "aggie-first-robotics",
+  "version": "1.1.0",
+  "description": "Aggie FIRST Robotics Site",
+  "main": "compil.ejs",
+  "repository": "https://github.com/AggieFirstRobotics/site.git",
+  "author": "Aggie FIRST Robotics",
+  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "autoprefixer": "9.1.5",
     "beepbeep": "1.2.2",

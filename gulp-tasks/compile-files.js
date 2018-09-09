@@ -1,16 +1,18 @@
 'use strict';
 process.env.EXSTATIC_LOG_LEVEL = 'error';
 const exstatic = require('exstatic')({ outputDir: './build' });
-const STAGING_URL = 'https://afr.vikasclien.tk';
 const PRODUCTION_URL = 'https://aggiefirstrobotics.org';
 
 module.exports = cb => {
 	const opts = {};
 
-	if (process.env.NODE_ENV === 'production') {
+	// CASE: Netlify deploy preview
+	// CASE: Custom build in non-netlify environment
+	// CASE: Netlify production deployment (we set the variable there)
+	if (process.env.CONTEXT && process.env.CONTEXT === 'deploy-preview') {
+		opts.url = process.env.DEPLOY_PRIME_URL;
+	} else if (process.env.NODE_ENV === 'production') {
 		opts.url = PRODUCTION_URL;
-	} else if (process.env.FOR_STAGING) {
-		opts.url = STAGING_URL;
 	} else if (process.env.EXSTATIC_DEPLOY_URL) {
 		opts.url = process.env.EXSTATIC_DEPLOY_URL;
 	}
