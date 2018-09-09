@@ -59,9 +59,12 @@
 		}
 	}
 
-	.opp-wrapper > p {
-		display: flex;
+	.opp-wrapper > p:first-of-type {
+		display: inline-flex;
 		align-items: center;
+		flex-wrap: wrap;
+		line-height: 3.5;
+
 		img {
 			padding-right: 25px;
 		}
