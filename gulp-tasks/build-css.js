@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const cachebust = require('gulp-rev');
 const del = require('del');
 const swallowError = require('./util-swallow-error');
+const cssnano = require('cssnano');
 
 // Adds backwards compatibility for css properties, increases efficiency and minifies
 module.exports = cb => {
@@ -18,7 +19,6 @@ module.exports = cb => {
 	const autoprefixer = require('autoprefixer');
 	const mergeMedia = require('css-mqpacker');
 	const mergeSelectors = require('postcss-combine-duplicated-selectors');
-	const cssnano = require('cssnano');
 
 	const processors = [
 		customProperties,
