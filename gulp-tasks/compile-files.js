@@ -1,20 +1,28 @@
 'use strict';
 process.env.EXSTATIC_LOG_LEVEL = 'error';
-const exstatic = require('exstatic')({ outputDir: './build' });
+let exstatic;
 const PRODUCTION_URL = 'https://aggiefirstrobotics.org';
 
 module.exports = cb => {
-	const opts = {};
+	const opts = {cache: false};
+
+	if (!exstatic) {
+		exstatic = require('exstatic')({outputDir: './build'});
+		module.exports.exstatic = exstatic;
+	}
 
 	// CASE: Netlify deploy preview
 	// CASE: Custom build in non-netlify environment
 	// CASE: Netlify production deployment (we set the variable there)
 	if (process.env.CONTEXT && process.env.CONTEXT === 'deploy-preview') {
 		opts.url = process.env.DEPLOY_PRIME_URL;
+		opts.cache = true;
 	} else if (process.env.NODE_ENV === 'production') {
 		opts.url = PRODUCTION_URL;
+		opts.cache = true;
 	} else if (process.env.EXSTATIC_DEPLOY_URL) {
 		opts.url = process.env.EXSTATIC_DEPLOY_URL;
+		opts.cache = true;
 	}
 
 	return exstatic.initialize(opts)
@@ -24,5 +32,3 @@ module.exports = cb => {
 			cb();
 		});
 };
-
-module.exports.exstatic = exstatic;

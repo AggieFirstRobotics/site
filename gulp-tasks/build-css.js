@@ -8,7 +8,7 @@ const swallowError = require('./util-swallow-error');
 // Adds backwards compatibility for css properties, increases efficiency and minifies
 module.exports = cb => {
 	// CSS Processing assets
-	const concat = require('gulp-concat');
+	const concat = require('gulp-concat'); // 2s
 	const csscomb = require('gulp-csscomb');
 	const sourcemaps = require('gulp-sourcemaps');
 	const postcss = require('gulp-postcss');

@@ -1,13 +1,15 @@
 'use strict';
 const run = require('run-sequence');
-const {exstatic} = require('./compile-files');
 
 module.exports = () => {
 	const watch = require('gulp-watch');
 	const gls = require('gulp-live-server');
 	const server = gls.static('build', 3000);
+	let exstatic;
 
-	run('build');
+	run('build', () => {
+		exstatic = require('./compile-files').exstatic;
+	});
 	server.start();
 	watch('./src/**/**/*', changeObject => {
 		let promise = Promise.resolve();
