@@ -11,7 +11,6 @@ class Assets {
 	registerHelper() {
 		return {
 			"assets": function assetsHelper() {
-				debugger;
 				const { SafeString } = this.instance._hbs;
 				const { url } = this.instance._hbs.handlebars.helpers;
 
