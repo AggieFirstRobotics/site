@@ -4,15 +4,23 @@ noSponsors: true
 ---
 
 {{hero}}
-
 {{#container}}
-
 Aggie FIRST Robotics wouldn't be possible without our sponsors!
+{{#filter @site.sponsors type="platinum" as |sponsors|}}
+{{> sponsor-section null title="Platinum" sponsors=sponsors}}
+{{/filter}}
 
-{{filteredSponsors @site.sponsors "platinum"}}
-{{filteredSponsors @site.sponsors "gold"}}
-{{filteredSponsors @site.sponsors "silver"}}
-{{filteredSponsors @site.sponsors "bronze"}}
+{{#filter @site.sponsors type="gold" as |sponsors|}}
+{{> sponsor-section null title="Gold" sponsors=sponsors}}
+{{/filter}}
+
+{{#filter @site.sponsors type="silver" as |sponsors|}}
+{{> sponsor-section null title="Silver" sponsors=sponsors}}
+{{/filter}}
+
+{{#filter @site.sponsors type="bronze" as |sponsors|}}
+{{> sponsor-section null title="Bronze" sponsors=sponsors}}
+{{/filter}}
 {{/container}}
 
 {{#container}}

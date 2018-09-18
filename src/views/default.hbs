@@ -68,22 +68,19 @@
 		<main>
 			{{{body}}}
 			{{#unless page.noSponsors}}
-			{{#if @site.sponsors.length}}
 			{{!-- use the term supporters since sponsors triggers ad blockers! --}}
-			<section id="supporters" class="container">
-				<h1 class="center">We are proudly sponsored by</h1>
+			{{#filter @site.sponsors type="platinum" as |sponsors|}}
+			{{#container id="supporters"}}
 				<div class="supporter-grid vertically-centered">
-					{{#each @site.sponsors as |sponsor|}}
+				{{#each sponsors}}
 					<div class="supporter-single">
-						{{#if sponsor.link}}<a href="{{sponsor.link}}" target="_blank" rel="nofollow noreferrer">{{/if}}
-						<img class="supporter-logo" src="{{url sponsor.logo}}" alt="{{sponsor.name}}" />
-						{{#if sponsor.link}}</a>{{/if}}
+						{{#if link}}<a href="{{link}}" target="_blank" rel="nofollow noreferrer">{{/if}}
+							<img class="supporter-logo" src="{{url logo}}" alt="{{name}}" />
+							{{#if link}}</a>{{/if}}
 					</div>
-					{{/each}}
+				{{/each}}
 				</div>
-			</section>
-			{{/if}}
-			{{/unless}}
+			{{/container}}{{/filter}}{{/unless}}
 		</main>
 		<footer class="container">
 			<div class="copyright">&copy; 2018 <a href="{{url ''}}">Aggie FIRST Robotics</a></div>
