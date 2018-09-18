@@ -58,10 +58,6 @@
 	}],
 
 	"sponsors": [{
-		"name": "Texas A&M University",
-		"logo": "/assets/img/tamu-sm.png",
-		"link": "https://tamu.edu"
-	}, {
 		"name": "Dell",
 		"logo": "/assets/img/sponsor-dell.png",
 		"link": "https://dell.com",
