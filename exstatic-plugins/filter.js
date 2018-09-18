@@ -1,6 +1,6 @@
 'use strict';
 
-class Filter {
+class FilterHelper {
 	constructor() {
 	}
 
@@ -10,42 +10,34 @@ class Filter {
 
 	registerHelper() {
 		return {
-			"filteredSponsors": function filterHelper(sponsors, type) {
-				const {SafeString, handlebars} = this.instance._hbs;
-				const {url} = handlebars.helpers;
-				const urlFor = (link) => url.call(this, link).string;
-
-				// todo: abstract this to a filter helper
-				const list = sponsors.filter(sponsor => sponsor.type === type);
-
-				let html = '';
-				if (list.length) {
-					html = `<h1 class="">${type.replace(/^[a-z]/, a => a.toUpperCase())} Sponsors</h1>
-						<div class="supporter-grid vertically-centered">
-					`;
-
-					list.forEach(item => {
-						let localHtml = '<div class="supporter-single">\n';
-
-						if(item.link) {
-							localHtml += `<a href="${item.link}" title="${item.name}" target="_blank" rel="nofollow noreferrer">`
-						}
-
-						localHtml += `<img class="supporter-logo color" src="${urlFor(item.logo)}" alt="${item.name}" />`
-
-						if (item.link) {
-							localHtml += '</a>';
-						}
-
-						html += `${localHtml}</div>`;
-					});
-
-					html += '</div>'
+			"filter": function filterHelper(input, options) {
+				const {hash, fn, inverse} = options;
+				let {data} = options;
+				if (!Array.isArray(input)) {
+					throw new Error('Filter: input must be array');
 				}
-				return new SafeString(html);
+
+				if (!fn) {
+					throw new Error('Filter is a block helper');
+				}
+
+				if (data) {
+					data = this.instance._hbs.handlebars.createFrame(data);
+				}
+
+				const results = input.filter(item => item.type == hash.type);
+				if (results.length > 0) {
+					if (data) {
+						data.results = results;
+					}
+
+					return fn({results}, {data, blockParams: [results]});
+				}
+
+				return inverse(this);
 			}
 		};
 	}
 }
 
-module.exports = new Filter();
+module.exports = new FilterHelper();
