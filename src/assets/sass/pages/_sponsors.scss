@@ -43,6 +43,20 @@
 		line-height: 6;
 		white-space: nowrap;
 		padding: 5px;
+
+		@for $i from 1 through 5 {
+			&:nth-child(#{$i}) {
+				@if $i != 1 {
+					color: $white;
+
+					@if $i == 1 {
+						background-color: $maroon;
+					} @else {
+						background-color: lighten($maroon, $i * 2%);
+					}
+				}
+			}
+		}
 	}
 
 	td {
