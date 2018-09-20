@@ -59,12 +59,12 @@
 
 	"sponsors": [{
 		"name": "Dell",
-		"logo": "/assets/img/sponsor-dell.png",
+		"logo": "/assets/img/dell-emc.png",
 		"link": "https://dell.com",
 		"type": "platinum"
 	}, {
 		"name": "VEX",
-		"logo": "/assets/img/sponsor-vex.png",
+		"logo": "/assets/img/vex-logo-small.png",
 		"link": "https://vex.com",
 		"type": "platinum"
 	}, {

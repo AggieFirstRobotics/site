@@ -4,7 +4,10 @@
 
 	.supporter-logo {
 		padding: 10px;
-		height: 150px;
+		max-width: 300px;
+		max-height: 100px;
+		width: auto;
+		height: auto;
 		transition: filter $fast-transition ease-in-out;
 
 		&:not(.color) {
