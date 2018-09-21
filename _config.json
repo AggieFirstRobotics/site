@@ -3,11 +3,11 @@
 	"url": "http://localhost:3000",
 	"plugins": [
 			"../plugins/minify-html",
-			"{cwd}/exstatic-plugins/container",
-			"{cwd}/exstatic-plugins/assets",
-			"{cwd}/exstatic-plugins/filter",
-			"{cwd}/exstatic-plugins/hero",
-			"{cwd}/exstatic-plugins/buildtime"
+			"{cwd}/.build-tools/exstatic-plugins/container",
+			"{cwd}/.build-tools/exstatic-plugins/assets",
+			"{cwd}/.build-tools/exstatic-plugins/filter",
+			"{cwd}/.build-tools/exstatic-plugins/hero",
+			"{cwd}/.build-tools/exstatic-plugins/buildtime"
 	],
 	"social": {
 		"facebook": "https://www.facebook.com/aggieFIRSTrobotics/",
