@@ -11,20 +11,8 @@ module.exports = function buildJS() {
 	const concat = require('gulp-concat');
 
 	const destination = './build/assets/js';
-	let files = false;
 
-	try {
-		files = require('../src/assets/js/_config');
-		if (!files || !Array.isArray(files) || files.length === 0) {
-			files = false;
-		}
-	} catch (E) { }
-
-	if (!files) {
-		files = ['./src/assets/js/*.js', '!./src/assets/js/_config.js'];
-	}
-
-	return gulp.src(files)
+	return gulp.src('./src/assets/js/*.js')
 		.pipe(order([
 			'src/assets/js/core.js',
 			'**/*.js'
