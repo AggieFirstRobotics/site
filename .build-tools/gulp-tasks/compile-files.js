@@ -7,7 +7,11 @@ module.exports = cb => {
 	const opts = {cache: false};
 
 	if (!exstatic) {
-		exstatic = require('exstatic')({outputDir: './build'});
+		exstatic = require('exstatic')({
+			outputDir: './build',
+			layoutsDir: '{input}/components',
+			partialsDir: '{input}/layout-helpers'
+		});
 		module.exports.exstatic = exstatic;
 	}
 
