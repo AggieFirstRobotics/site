@@ -4,12 +4,12 @@ const run = require('run-sequence');
 
 module.exports = cb => {
 	const zip = require('gulp-zip');
-	const pkg = require('../package.json');
+	const {name = 'built'} = require('../../package.json');
 
 	process.env.DIST = true;
 	run('build', () =>
 		gulp.src(['./build/**/*', '!./build/cachebust-*.json'])
-			.pipe(zip(`./${pkg.name || 'built'}.zip`))
+			.pipe(zip(`./${name}.zip`))
 			.pipe(gulp.dest('.'))
 			.on('end', cb)
 	);
