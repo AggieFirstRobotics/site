@@ -2,7 +2,7 @@
   "name": "aggie-first-robotics",
   "version": "1.2.2",
   "description": "Aggie FIRST Robotics Site",
-  "main": "compil.ejs",
+  "main": "compile.js",
   "repository": "https://github.com/AggieFirstRobotics/site.git",
   "author": "Aggie FIRST Robotics",
   "license": "MIT",

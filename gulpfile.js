@@ -1,4 +1,4 @@
-const GULP_TASK_FOLDER = './.bufild-tools/gulp-tasks'
+const GULP_TASK_FOLDER = './.build-tools/gulp-tasks'
 'use strict';
 /* eslint-disable max-statements-per-line, brace-style */
 const gulp = require('gulp');
