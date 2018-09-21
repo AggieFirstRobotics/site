@@ -15,6 +15,7 @@ const copyAssets = require(`${GULP_TASK_FOLDER}/copy-assets`);
 const buildForDist = require(`${GULP_TASK_FOLDER}/dist`);
 const zipDist = require(`${GULP_TASK_FOLDER}/zip`);
 const watch = require(`${GULP_TASK_FOLDER}/watch`);
+const headers = require(`${GULP_TASK_FOLDER}/headers`);
 
 gulp.on('err', swallowError);
 
@@ -28,6 +29,7 @@ gulp.task('dist', cb => {buildForDist(cb);});
 gulp.task('zip', cb => {zipDist(cb);});
 gulp.task('default', () => run('watch'));
 gulp.task('watch', () => watch());
+gulp.task('headers', () => headers());
 
 gulp.task('build', cb => {
 	run('clean-build', 'sass', ['css', 'js'], 'copy-assets', 'compile-files', cb);

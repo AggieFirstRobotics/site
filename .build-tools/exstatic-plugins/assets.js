@@ -1,5 +1,5 @@
 'use strict';
-
+const getBustedAssets = require('../getBustedAssets.js');
 class Assets {
 	constructor() {
 	}
@@ -11,25 +11,12 @@ class Assets {
 	registerHelper() {
 		return {
 			"assets": function assetsHelper() {
-				const BUILD_PATH = '../../build';
-				const { SafeString } = this.instance._hbs;
-				const { url } = this.instance._hbs.handlebars.helpers;
+				const {css, js} = getBustedAssets(true);
+				const {SafeString} = this.instance._hbs;
+				const {url} = this.instance._hbs.handlebars.helpers;
 
-				let bustedCSS = 'styles.min.css';
-				let bustedJS = 'scripts.min.js';
-
-				try {
-					delete require.cache[require.resolve(`${BUILD_PATH}/cachebust-styles.json`)];
-					bustedCSS = require(`${BUILD_PATH}/cachebust-styles.json`)['styles.min.css'];
-				} catch (e) { }
-
-				try {
-					delete require.cache[require.resolve(`${BUILD_PATH}/cachebust-scripts.json`)];
-					bustedJS = require(`${BUILD_PATH}/cachebust-scripts.json`)['scripts.min.js'];
-				} catch (e) { }
-
-				bustedCSS = url.call(this, `/assets/css/${bustedCSS}`).string;
-				bustedJS = url.call(this, `/assets/js/${bustedJS}`).string;
+				const bustedCSS = url.call(this, `/assets/css/${css}`).string;
+				const bustedJS = url.call(this, `/assets/js/${js}`).string;
 
 				return new SafeString(`
 					<link rel="stylesheet" href="${bustedCSS}" />
