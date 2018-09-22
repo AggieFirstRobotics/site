@@ -32,5 +32,5 @@ gulp.task('watch', () => watch());
 gulp.task('headers', () => headers());
 
 gulp.task('build', cb => {
-	run('clean-build', 'sass', ['css', 'js'], 'copy-assets', 'compile-files', cb);
+	run('clean-build', 'sass', ['css', 'js'], 'copy-assets', 'compile-files', 'headers', cb);
 });
