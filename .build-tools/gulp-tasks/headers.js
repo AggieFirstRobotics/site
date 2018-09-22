@@ -40,7 +40,6 @@ module.exports = function generateHeaders() {
 	fileContents += '/assets/js/*\n\tCache-Control: public, max-age=63072000\n';
 	fileContents += '/assets/css/*\n\tCache-Control: public, max-age=63072000\n';
 
-	const dest = process.env.DIST ? './dist/_headers' : './build/_headers';
 	const {writeFileSync} = require('fs');
-	writeFileSync(dest, fileContents);
+	writeFileSync('./build/_headers', fileContents);
 }
