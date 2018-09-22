@@ -7,7 +7,7 @@ module.exports = function generateHeaders() {
 		'X-Frame-Options': 'SAMEORIGIN',
 		'Referrer-Policy': 'strict-origin-when-cross-origin',
 		'X-XSS-Protection': '1; mode=block',
-		'Feature-Policy': 'none',
+		'Feature-Policy': 'accelerometer \'none\'; camera \; geolocation \'none\'; gyroscope \'none\'; magnetometer \'none\'; microphone \'none\'; payment \'none\'; usb \'none\'',
 		'Strict-Transport-Security': 'max-age=15552000; includeSubDomains; preload',
 		'X-Content-Type-Options': 'nosniff',
 		'link': []
