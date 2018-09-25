@@ -1,0 +1,14 @@
+ - name: Dell
+   logo: /assets/img/sponsors/dell-emc.png
+   link: https://dell.com
+   type: platinum
+
+ - name: VEX
+   logo: /assets/img/sponsors/vex.png
+   link: https://vex.com
+   type: platinum
+
+ - name: Saint Gobain
+   logo: /assets/img/sponsors/saint-gobain.png
+   link: https://www.saint-gobain-northamerica.com/
+   type: silver
