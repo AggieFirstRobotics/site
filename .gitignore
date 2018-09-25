@@ -32,3 +32,5 @@ exstatic
 .exstatic
 
 *.zip
+
+_config.json
