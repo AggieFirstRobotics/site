@@ -25,7 +25,15 @@ class FilterHelper {
 					data = this.instance._hbs.handlebars.createFrame(data);
 				}
 
-				const results = input.filter(item => item.type == hash.type);
+				const filters = Object.keys(hash);
+
+				const results = input.filter(item =>
+					filters.reduce(
+						(state, key) => state && (item[key] === hash[key]),
+						true
+					)
+				);
+
 				if (results.length > 0) {
 					if (data) {
 						data.results = results;
