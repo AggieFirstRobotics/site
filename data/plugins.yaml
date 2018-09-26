@@ -1,0 +1,7 @@
+ - ../plugins/minify-html
+ # We have '' surrounding these plugins because they have `{cwd}` - the curly braces are special characters in YAML
+ - '{cwd}/.build-tools/exstatic-plugins/container'
+ - '{cwd}/.build-tools/exstatic-plugins/assets'
+ - '{cwd}/.build-tools/exstatic-plugins/filter'
+ - '{cwd}/.build-tools/exstatic-plugins/hero'
+ - '{cwd}/.build-tools/exstatic-plugins/buildtime'

@@ -20,6 +20,15 @@ footer {
 			border-bottom: 1px solid darken($white, 15%);
 		}
 	}
+
+	.logo-wrapper {
+		display: block;
+	}
+
+	.tamu-logo {
+		height: 30px;
+	}
+
 	.social {
 		display: inline-flex;
 		@include centered;
@@ -47,13 +56,19 @@ footer {
 	}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 900px) {
 	footer {
 		flex-direction: column;
 		@include centered;
 
-		.copyright {
-			margin-bottom: 10px;
+		.logo-wrapper,
+		.tamu-logo,
+		.copyright, {
+			padding: 10px 0;
+		}
+
+		.social {
+			margin: 0;
 		}
 	}
 }

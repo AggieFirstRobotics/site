@@ -1,0 +1,109 @@
+---
+title: Sponsors
+noSponsors: true
+---
+
+{{hero}}
+{{#container}}
+Aggie FIRST Robotics wouldn't be possible without our sponsors!
+{{#filter @site.sponsors type="platinum" as |sponsors|}}
+{{> sponsor-section null title="Platinum" sponsors=sponsors}}
+{{/filter}}
+
+{{#filter @site.sponsors type="gold" as |sponsors|}}
+{{> sponsor-section null title="Gold" sponsors=sponsors}}
+{{/filter}}
+
+{{#filter @site.sponsors type="silver" as |sponsors|}}
+{{> sponsor-section null title="Silver" sponsors=sponsors}}
+{{/filter}}
+
+{{#filter @site.sponsors type="bronze" as |sponsors|}}
+{{> sponsor-section null title="Bronze" sponsors=sponsors}}
+{{/filter}}
+{{/container}}
+
+{{#container}}
+# Sponsor Us
+
+Aggie FIRST Robotics has 4 Tiers of sponsorship, each with varying benefits. [Flyer]({{url '/assets/uploads/sponsorship_guide.pdf'}})
+{{/container}}
+
+<section class="will-scroll">
+	<table>
+		<tr>
+			<th>Sponsorship Benefits (per year)</th>
+			<th>Platinum* ($5000+)</th>
+			<th>Gold* ($2000-$4999)</th>
+			<th>Silver ($1000-$1999)</th>
+			<th>Bronze ($500-$999)</th>
+		</tr>
+		<tr>
+			<td>General Meetings</td>
+			<td>Unlimited</td>
+			<td>2 per year</td>
+			<td>1 per year</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Logo on Projects</td>
+			<td>All projects</td>
+			<td>Limit 2 Projects</td>
+			<td>Limit 1 Project</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Logo on T-Shirts</td>
+			<td>Prominent</td>
+			<td>Prominent</td>
+			<td>Present</td>
+			<td>Present</td>
+		</tr>
+		<tr>
+			<td>Logo on Website</td>
+			<td>Platinum Banner</td>
+			<td>Gold Banner</td>
+			<td>Silver Banner</td>
+			<td>Bronze Banner</td>
+		</tr>
+		<tr>
+			<td>Logo on all Printed Materials</td>
+			<td>✔</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Job Postings on Weekly Bulletin</td>
+			<td>✔</td>
+			<td>✔</td>
+			<td>✔</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Job Postings on Website</td>
+			<td>✔</td>
+			<td>✔</td>
+			<td>✔</td>
+			<td>✔</td>
+		</tr>
+	</table>
+	<p class="center">
+		*If you plan on donating at this level of sponsorship, please contact us directly at aggie.first.robotics@gmail.com to arrange an in person meeting.
+	</p>
+</section>
+
+
+
+{{#container}}
+## How to Sponsor Us:
+
+1. Go to [giving.tamu.edu](https://www.txamfoundation.com/give.aspx), click Give Now on the top right.
+2. On step 1 select "I would like to give to an unlisted account"
+3. Enter `958870` as the account number.
+4. Follow instructions to give any further information necessary.
+5. Once the donation is submitted, send a confirmation email to aggie.first.robotics@gmail.com with a
+screenshot of the amount donated. The donation takes up to 4 weeks to process and sending this email
+helps us expedite the sponsorship process.
+6. Please include any logos or relevant company branding information in the confirmation email
+{{/container}}

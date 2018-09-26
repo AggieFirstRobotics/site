@@ -1,6 +1,19 @@
-#calendar iframe {
-	width: 100%;
+#calendar-wrapper iframe {
+	box-sizing: border-box;
 	height: auto;
 	min-height: 75vh;
-	max-width: calc(100vw - 50px);
+	padding: 0 15%;
+}
+
+@media (max-width: 1000px) {
+	@supports (-webkit-overflow-scrolling: touch) {
+		#calendar-wrapper {
+			overflow-x: scroll;
+			padding-bottom: 20px;
+		}
+	}
+
+	#calendar-wrapper iframe {
+		padding: 0 10px;
+	}
 }

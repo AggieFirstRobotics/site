@@ -1,21 +1,22 @@
+const GULP_TASK_FOLDER = './.build-tools/gulp-tasks'
 'use strict';
 /* eslint-disable max-statements-per-line, brace-style */
 const gulp = require('gulp');
 const run = require('run-sequence');
 const del = require('del');
 
-const swallowError = require('./gulp-tasks/util-swallow-error');
+const swallowError = require(`${GULP_TASK_FOLDER}/util-swallow-error`);
 
-const buildSass = require('./gulp-tasks/build-sass');
-const buildCSS = require('./gulp-tasks/build-css');
-const buildJS = require('./gulp-tasks/build-js');
-const compileFiles = require('./gulp-tasks/compile-files');
-const copyAssets = require('./gulp-tasks/copy-assets');
-const stripPackage = require('./gulp-tasks/strip-package');
-const buildForDist = require('./gulp-tasks/dist');
-const zipDist = require('./gulp-tasks/zip');
-const syncDist = require('./gulp-tasks/sync');
-const watch = require('./gulp-tasks/watch');
+const buildSass = require(`${GULP_TASK_FOLDER}/build-sass`);
+const buildCSS = require(`${GULP_TASK_FOLDER}/build-css`);
+const buildJS = require(`${GULP_TASK_FOLDER}/build-js`);
+const compileFiles = require(`${GULP_TASK_FOLDER}/compile-files`);
+const copyAssets = require(`${GULP_TASK_FOLDER}/copy-assets`);
+const buildForDist = require(`${GULP_TASK_FOLDER}/dist`);
+const zipDist = require(`${GULP_TASK_FOLDER}/zip`);
+const watch = require(`${GULP_TASK_FOLDER}/watch`);
+const generateConfig = require(`${GULP_TASK_FOLDER}/generate-config`);
+const headers = require(`${GULP_TASK_FOLDER}/headers`);
 
 gulp.on('err', swallowError);
 
@@ -25,13 +26,13 @@ gulp.task('css', cb => {buildCSS(cb);});
 gulp.task('js', () => buildJS());
 gulp.task('compile-files', cb => {compileFiles(cb);});
 gulp.task('copy-assets', () => copyAssets());
-gulp.task('strip-package', () => stripPackage());
 gulp.task('dist', cb => {buildForDist(cb);});
 gulp.task('zip', cb => {zipDist(cb);});
 gulp.task('default', () => run('watch'));
-gulp.task('sync', cb => {syncDist(cb);});
 gulp.task('watch', () => watch());
+gulp.task('generate-config', () => generateConfig());
+gulp.task('headers', () => headers());
 
 gulp.task('build', cb => {
-	run('clean-build', 'sass', ['css', 'js'], 'copy-assets', 'compile-files', 'strip-package', cb);
+	run('clean-build', 'generate-config', 'sass', ['css', 'js'], 'copy-assets', 'compile-files', 'headers', cb);
 });

@@ -8,7 +8,8 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: #FBFBFB;
+	background: $white;
+	color: $black;
 }
 
 header {
@@ -48,9 +49,16 @@ footer {
 }
 
 
-p, ul {
+p, ul, ol {
 	line-height: 1.5;
 	font-size: 1rem;
+}
+
+code {
+	background: $lightgrey;
+	padding: 2px 5px;
+	font-family: monospace, monospace;
+	font-size: 1em;
 }
 
 .container.no-border {
@@ -64,4 +72,10 @@ p, ul {
 	position: absolute;
 	white-space: nowrap;
 	width: 1px;
+}
+
+.will-scroll {
+	overflow-x: scroll;
+	padding: 0 10px;
+	padding-right:30px;
 }
