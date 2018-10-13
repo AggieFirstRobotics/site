@@ -24,26 +24,25 @@ class IconHelper {
 	}
 
 	registerHelper() {
-		const self = this;
+		const helperInstance = this;
 		const sourceFolder = this.sourceFolder;
 		function iconHelper(name, options, callback) {
-			const {cache} = self;
-			console.log('Loading icon', name);
 			if (typeof options === 'function') {
 				callback = options;
 				options = {};
 			}
 
+			let dataPromise;
 			const {SafeString} = this.instance._hbs;
+			const {cache} = helperInstance;
 			const opts = Object.assign({
 				wrapper: true,
+				wrapperClass: '',
 				type: 'svg'
 			}, options.hash);
 
-			let content = '', dataPromise;
 			name = name.toLowerCase().replace(/ /g, '-');
 			if (cache[name]) {
-				console.log('Loading icon from cache', name);
 				dataPromise = Promise.resolve(cache[name]);
 			} else {
 				// Note: there is no filtering of the name because we trust the input
@@ -62,10 +61,11 @@ class IconHelper {
 					callback(new SafeString(''));
 				}
 
-				content += data;
+				let content = data;
 
 				if (options.wrapper) {
-					contents = `<i>${content}</i>`;
+					const wrapperData = wrapperClass ? ` class="${wrapperClass}"` : ''
+					contents = `<i${wrapperData}>${content}</i>`;
 				}
 
 				callback(new SafeString(content));

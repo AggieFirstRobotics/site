@@ -27,13 +27,16 @@ module.exports = () => {
 			console.log('Refreshing file', path);
 			promise = exstatic.refreshFile(path);
 		// refresh all files if a view / partial or style / script changed
-		} else if(path.indexOf('assets/icons') > 0) {
-			console.log('Resetting icon cache');
-			icon.clearCache();
-		} else if (
-			(['.hbs', '.md'].includes(fileType) && path.indexOf('views') >= 0) ||
-			['.css', '.scss', '.js'].includes(fileType)
+	} else if (
+		(['.hbs', '.md'].includes(fileType) && path.indexOf('views') >= 0) ||
+		['.css', '.scss', '.js'].includes(fileType) ||
+		path.indexOf('assets/icons') > 0
 		) {
+			if (path.indexOf('assets/icons') > 0) {
+				console.log('Clearing icon cache');
+				icon.clearCache();
+			}
+
 			console.log('Refreshing all files');
 			promise = exstatic.refreshAll();
 		}
