@@ -7,6 +7,7 @@ const read = promisify(readFile);
 
 class IconHelper {
 	constructor() {
+		this.cache = {};
 		this.sourceFolder = process.cwd() + '/src/assets/icons';
 	}
 
@@ -14,14 +15,19 @@ class IconHelper {
 		this.sourceFolder = opts.sourceFolder || this.sourceFolder;
 	}
 
+	clearCache() {
+		this.cache = {};
+	}
+
 	registerHooks(hookRegisterer) {
 		hookRegisterer('pre-register_helpers', this.registerHelper.bind(this));
 	}
 
 	registerHelper() {
+		const self = this;
 		const sourceFolder = this.sourceFolder;
-		let cache = {};
 		function iconHelper(name, options, callback) {
+			const {cache} = self;
 			console.log('Loading icon', name);
 			if (typeof options === 'function') {
 				callback = options;

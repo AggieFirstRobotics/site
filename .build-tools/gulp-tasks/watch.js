@@ -5,6 +5,7 @@ module.exports = () => {
 	const watch = require('gulp-watch');
 	const gls = require('gulp-live-server');
 	const server = gls.static('build', 3000);
+	const icon = require('../exstatic-plugins/icon');
 	let exstatic;
 
 	run('build', () => {
@@ -19,14 +20,18 @@ module.exports = () => {
 		let promise = Promise.resolve();
 
 		const fileType = changeObject.extname.toLowerCase();
-		console.log('Watch: updating file', fileType, changeObject.path);
+		const path = changeObject.path.replace(/\\/g, '/');
+		console.log('Watch: updating file', fileType, path);
 		// Only refresh files, not views or partials
-		if (['.hbs', '.md'].includes(fileType) && changeObject.path.indexOf('views') < 0) {
-			console.log('Refreshing file', changeObject.path);
-			promise = exstatic.refreshFile(changeObject.path);
+		if (['.hbs', '.md'].includes(fileType) && path.indexOf('views') < 0) {
+			console.log('Refreshing file', path);
+			promise = exstatic.refreshFile(path);
 		// refresh all files if a view / partial or style / script changed
+		} else if(path.indexOf('assets/icons') > 0) {
+			console.log('Resetting icon cache');
+			icon.clearCache();
 		} else if (
-			(['.hbs', '.md'].includes(fileType) && changeObject.path.indexOf('views') >= 0) ||
+			(['.hbs', '.md'].includes(fileType) && path.indexOf('views') >= 0) ||
 			['.css', '.scss', '.js'].includes(fileType)
 		) {
 			console.log('Refreshing all files');
