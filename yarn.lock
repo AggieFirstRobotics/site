@@ -2071,7 +2071,7 @@ express-hbs@^1.0.4:
 
 "exstatic@github:hexrweb/exstatic":
   version "0.0.1"
-  resolved "https://codeload.github.com/hexrweb/exstatic/tar.gz/37689615eba788b2bef88df20d8508968a3d3f7f"
+  resolved "https://codeload.github.com/hexrweb/exstatic/tar.gz/51f1e2b5cd04fe29bb1fe619824dbf94e96111e9"
   dependencies:
     "@hexr/hookit" "^0.1.1"
     bluebird "^3.5.2"
