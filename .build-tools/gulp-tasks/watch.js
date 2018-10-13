@@ -12,6 +12,10 @@ module.exports = () => {
 	});
 	server.start();
 	watch('./src/**/**/*', changeObject => {
+		if (!exstatic) {
+			exstatic = require('./compile-files').exstatic;
+		}
+
 		let promise = Promise.resolve();
 
 		const fileType = changeObject.extname.toLowerCase();
