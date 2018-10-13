@@ -26,6 +26,34 @@
 }
 
 .page-member-resources {
+	.sl-logo {
+		width: 25px;
+		height: 25px;
+	}
+
+	.social-links ul {
+		list-style-type: none;
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+
+		li {
+			display: inline-flex;
+			align-items: center;
+			min-height: 45px;
+		}
+
+		a {
+			display: inline-flex;
+			flex-direction: row;
+			text-decoration: none;
+			margin: 0 2px;
+
+			.logo {
+				margin-right: 5px;
+			}
+		}
+	}
 	// @todo: update sizing for headings
 	section h2 {
 		text-align: left;
