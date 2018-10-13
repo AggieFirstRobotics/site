@@ -79,3 +79,13 @@ code {
 	padding: 0 10px;
 	padding-right:30px;
 }
+
+.color-social-icons {
+	.fb-logo path {
+		fill: $fb-blue
+	}
+
+	.yt-logo path {
+		fill: $yt-red;
+	}
+}
