@@ -110,7 +110,8 @@
 				margin-top: $nav-full-height - $nav-height-step;
 				border-top: 1px solid $nav-link-color;
 				background: $nav-mobile-background;
-				transition: all $slow-transition ease-in-out;
+				transition: $slow-transition ease-in-out;
+				transition-property: visibility, transform, opacity;
 				max-height: calc(100vh - 70px);
 				overflow-y: auto;
 
