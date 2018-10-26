@@ -65,28 +65,6 @@
 		text-align: center;
 	}
 
-	button {
-		background: $secondary;
-		border: 1px solid transparent;
-		transition: all $medium-transition linear;
-
-		a {
-			display: block;
-			padding: 10px 15px;
-			color: $primary;
-			text-decoration: none;
-		}
-
-		&:hover {
-			background: $primary;
-			border: 1px solid $secondary;
-
-			a {
-				color: $secondary;
-			}
-		}
-	}
-
 	.opp-wrapper > p:first-of-type {
 		display: inline-flex;
 		align-items: center;
