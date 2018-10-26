@@ -44,4 +44,5 @@ margin-left: 0 !important;
 
 .vertically-centered {
 	@include centered;
+	margin: 0 auto;
 }
