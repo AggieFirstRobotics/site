@@ -43,13 +43,14 @@ class IconHelper {
 				type: 'svg'
 			}, options.hash);
 
+			// Note: there is no filtering of the name because we trust the input
 			const fileName = `${sourceFolder}/${name}.${opts.type}`;
 			let contents = cache[name] || await getFileContents(fileName);
 
 			if (!contents || !contents.length) {
 				name = name.toLowerCase().replace(/ /g, '-');
 				console.warn('Unable to locate icon:', name);
-				callback(new SafeString(''));
+				return callback(new SafeString(''));
 			} else if (!cache[name]) {
 				cache[name] = contents;
 			}
