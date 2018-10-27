@@ -5,6 +5,8 @@ const {readFile} = require('fs');
 
 const read = promisify(readFile);
 
+const getFileContents = async (file) => await read(file, 'utf8').catch(() => '');
+
 class IconHelper {
 	constructor() {
 		this.cache = {};
@@ -26,13 +28,13 @@ class IconHelper {
 	registerHelper() {
 		const helperInstance = this;
 		const sourceFolder = this.sourceFolder;
-		function iconHelper(name, options, callback) {
+
+		async function iconHelper(name, options, callback) {
 			if (typeof options === 'function') {
 				callback = options;
 				options = {};
 			}
 
-			let dataPromise;
 			const {SafeString} = this.instance._hbs;
 			const {cache} = helperInstance;
 			const opts = Object.assign({
@@ -41,35 +43,24 @@ class IconHelper {
 				type: 'svg'
 			}, options.hash);
 
-			name = name.toLowerCase().replace(/ /g, '-');
-			if (cache[name]) {
-				dataPromise = Promise.resolve(cache[name]);
-			} else {
-				// Note: there is no filtering of the name because we trust the input
-				const fileName = `${sourceFolder}/${name}.${opts.type}`;
-				dataPromise = read(fileName, 'utf8').then(data => {
-					if (data.length) {
-						cache[name] = data;
-					}
-					return data;
-				}).catch(() => '');
+			const fileName = `${sourceFolder}/${name}.${opts.type}`;
+			let contents = cache[name] || await getFileContents(fileName);
+
+			if (!contents || !contents.length) {
+				name = name.toLowerCase().replace(/ /g, '-');
+				console.warn('Unable to locate icon:', name);
+				callback(new SafeString(''));
+			} else if (!cache[name]) {
+				cache[name] = contents;
 			}
 
-			dataPromise.then(data => {
-				if (!data) {
-					console.warn('Unable to locate icon:', name);
-					callback(new SafeString(''));
-				}
+			if (opts.wrapper) {
+				const {wrapperClass: className} = {opts};
+				const wrapperData = className ? ` class="${className}"` : '';
+				contents = `<i${wrapperData}>${contents}</i>`;
+			}
 
-				let content = data;
-
-				if (options.wrapper) {
-					const wrapperData = wrapperClass ? ` class="${wrapperClass}"` : ''
-					contents = `<i${wrapperData}>${content}</i>`;
-				}
-
-				callback(new SafeString(content));
-			});
+			callback(new SafeString(contents));
 		}
 
 		return {
