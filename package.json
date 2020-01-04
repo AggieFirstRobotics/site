@@ -1,6 +1,6 @@
 {
   "name": "aggie-first-robotics",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "Aggie FIRST Robotics Site",
   "main": "compile.js",
   "repository": "https://github.com/AggieFirstRobotics/site.git",
