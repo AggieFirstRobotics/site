@@ -4,8 +4,6 @@ const {readFileSync} = require('fs'); // @todo: use async
 
 const getFileContents = file => readFileSync(file, 'utf8');
 
-const getFileContents = async (file) => await read(file, 'utf8').catch(() => '');
-
 class IconHelper {
 	constructor() {
 		this.cache = {};
