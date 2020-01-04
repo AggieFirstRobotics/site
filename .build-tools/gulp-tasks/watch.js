@@ -8,7 +8,9 @@ module.exports = () => {
 	const icon = require('../exstatic-plugins/icon');
 	let exstatic;
 
-	gulp.task('build').unwrap()(() => {
+	const build = gulp.task('build').unwrap();
+
+	build(() => {
 		exstatic = require('./compile-files').exstatic;
 	});
 	server.start();
@@ -41,6 +43,6 @@ module.exports = () => {
 			promise = exstatic.refreshAll();
 		}
 
-		return promise.then(() => run('build', () => server.notify([changeObject])))
+		return promise.then(() => build(() => server.notify([changeObject])))
 	});
 };
