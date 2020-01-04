@@ -1,37 +1,37 @@
 {
   "name": "aggie-first-robotics",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "Aggie FIRST Robotics Site",
   "main": "compile.js",
   "repository": "https://github.com/AggieFirstRobotics/site.git",
   "author": "Aggie FIRST Robotics",
+  "browserslist": ["last 2 versions"],
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "autoprefixer": "9.3.1",
-    "beepbeep": "1.2.2",
+    "autoprefixer": "9.7.3",
+    "beepbeep": "1.3.0",
     "css-mqpacker": "7.0.0",
-    "cssnano": "4.1.7",
-    "del": "3.0.0",
-    "gulp": "3.9.1",
-    "gulp-changed": "3.2.0",
+    "cssnano": "4.1.10",
+    "del": "5.1.0",
+    "gulp": "4.0.2",
+    "gulp-changed": "4.0.2",
     "gulp-concat": "2.6.1",
-    "gulp-csscomb": "3.0.8",
-    "gulp-if": "2.0.2",
+    "gulp-csscomb": "3.1.0",
+    "gulp-if": "3.0.0",
     "gulp-live-server": "0.0.31",
     "gulp-order": "1.2.0",
     "gulp-postcss": "8.0.0",
     "gulp-rev": "9.0.0",
     "gulp-sass": "4.0.2",
-    "gulp-sourcemaps": "2.6.4",
+    "gulp-sourcemaps": "2.6.5",
     "gulp-strip-debug": "3.0.0",
-    "gulp-uglify": "3.0.1",
+    "gulp-uglify": "3.0.2",
     "gulp-watch": "^5.0.1",
-    "gulp-zip": "4.2.0",
-    "postcss-combine-duplicated-selectors": "6.1.0",
-    "postcss-custom-properties": "8.0.8",
-    "run-sequence": "2.2.1",
-    "xo": "^0.23.0"
+    "gulp-zip": "5.0.1",
+    "postcss-combine-duplicated-selectors": "8.1.0",
+    "postcss-custom-properties": "9.0.2",
+    "xo": "^0.25.3"
   },
   "scripts": {
     "test": "xo"
@@ -45,6 +45,6 @@
     }
   },
   "dependencies": {
-    "exstatic": "github:hexrweb/exstatic"
+    "exstatic": "github:hexrweb/exstatic#51f1e2b5cd04fe29bb1fe619824dbf94e96111e9"
   }
 }
