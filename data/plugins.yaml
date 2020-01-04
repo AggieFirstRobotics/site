@@ -6,3 +6,5 @@
  - '{cwd}/.build-tools/exstatic-plugins/hero'
  - '{cwd}/.build-tools/exstatic-plugins/buildtime'
  - '{cwd}/.build-tools/exstatic-plugins/icon'
+ - '{cwd}/.build-tools/exstatic-plugins/link-helpers'
+ - '{cwd}/.build-tools/exstatic-plugins/visual-helpers'
