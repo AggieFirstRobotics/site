@@ -2,7 +2,7 @@
 
 const getBustedAssets = require('../getBustedAssets.js');
 
-module.exports = function generateHeaders() {
+module.exports = function generateHeaders(cb) {
 	const headers = {
 		'X-Frame-Options': 'SAMEORIGIN',
 		'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -42,4 +42,5 @@ module.exports = function generateHeaders() {
 
 	const {writeFileSync} = require('fs');
 	writeFileSync('./build/_headers', fileContents);
+	cb();
 }

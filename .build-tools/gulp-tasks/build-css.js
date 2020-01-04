@@ -22,7 +22,7 @@ module.exports = cb => {
 
 	const processors = [
 		customProperties,
-		autoprefixer({browsers: ['last 2 versions']}),
+		autoprefixer(),
 		mergeMedia(),
 		mergeSelectors(),
 		cssnano()

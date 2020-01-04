@@ -1,5 +1,5 @@
 'use strict';
-const run = require('run-sequence');
+const gulp = require('gulp');
 
 module.exports = () => {
 	const watch = require('gulp-watch');
@@ -8,7 +8,7 @@ module.exports = () => {
 	const icon = require('../exstatic-plugins/icon');
 	let exstatic;
 
-	run('build', () => {
+	gulp.task('build').unwrap()(() => {
 		exstatic = require('./compile-files').exstatic;
 	});
 	server.start();
