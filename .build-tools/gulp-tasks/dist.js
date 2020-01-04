@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const del = require('del');
-const run = require('run-sequence');
 
 module.exports = cb => {
 	console.log('-------BEGIN ENV DUMP-------');
@@ -10,7 +9,7 @@ module.exports = cb => {
 	console.log('--------END ENV DUMP--------');
 	process.env.DIST = true;
 	del.sync('dist');
-	run('build', () =>
+	gulp.task('build').unwrap()(() =>
 		gulp.src(['build/**/*', '!build/cachebust-*.json']).pipe(gulp.dest('./dist').on('end', cb))
 	);
 };

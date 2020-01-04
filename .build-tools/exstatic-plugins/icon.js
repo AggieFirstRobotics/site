@@ -1,9 +1,8 @@
 'use strict';
 
-const {promisify} = require('util');
-const {readFile} = require('fs');
+const {readFileSync} = require('fs'); // @todo: use async
 
-const read = promisify(readFile);
+const getFileContents = file => readFileSync(file, 'utf8');
 
 const getFileContents = async (file) => await read(file, 'utf8').catch(() => '');
 
@@ -29,11 +28,7 @@ class IconHelper {
 		const helperInstance = this;
 		const sourceFolder = this.sourceFolder;
 
-		async function iconHelper(name, options, callback) {
-			if (typeof options === 'function') {
-				callback = options;
-				options = {};
-			}
+		function iconHelper(name, options = {}) {
 
 			const {SafeString} = this.instance._hbs;
 			const {cache} = helperInstance;
@@ -45,12 +40,12 @@ class IconHelper {
 
 			// Note: there is no filtering of the name because we trust the input
 			const fileName = `${sourceFolder}/${name}.${opts.type}`;
-			let contents = cache[name] || await getFileContents(fileName);
+			let contents = cache[name] || getFileContents(fileName);
 
 			if (!contents || !contents.length) {
 				name = name.toLowerCase().replace(/ /g, '-');
 				console.warn('Unable to locate icon:', name);
-				return callback(new SafeString(''));
+				return new SafeString('');
 			} else if (!cache[name]) {
 				cache[name] = contents;
 			}
@@ -61,13 +56,11 @@ class IconHelper {
 				contents = `<i${wrapperData}>${contents}</i>`;
 			}
 
-			callback(new SafeString(contents));
+			return new SafeString(contents);
 		}
 
 		return {
-			async: {
-				icon: iconHelper
-			}
+			icon: iconHelper
 		};
 	}
 }
